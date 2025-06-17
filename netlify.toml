@@ -1,9 +1,5 @@
 [build]
   functions = "netlify/functions"
 
-[[plugins]]
-  package = "@netlify/plugin-scheduled-functions"
-
-[[scheduledFunctions]]
-  function = "hood_sync"
+[functions.hood_sync]
   schedule = "@hourly"
