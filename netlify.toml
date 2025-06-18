@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"
+
+[functions.hood_sync]
+  schedule = "@hourly"
+
+[dev]
+  port      = 8888
+  functions = "netlify/functions" 
