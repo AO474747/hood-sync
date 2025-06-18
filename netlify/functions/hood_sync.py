@@ -6,7 +6,6 @@ import xml.etree.ElementTree as ET
 import csv
 import io
 
-
 def handler(event, context):
     """
     Netlify Scheduled Function: Sync von Shopware CSV-Feed zu Hood API.
@@ -14,12 +13,10 @@ def handler(event, context):
     # Umgebungsvariablen
     feed_url = os.getenv('FEED_URL')
     raw_pass = os.getenv('HOOD_PASSWORD')
-    # Falls ein Klartext-Passwort übergeben wird, MD5-Hash erzeugen
     account_name = os.getenv('ACCOUNT_NAME')
     md5_hash = os.getenv('MD5_HASH') or hashlib.md5(raw_pass.encode('utf-8')).hexdigest()
     endpoint = os.getenv('HOOD_ENDPOINT', 'https://www.hood.de/api.htm')
 
-    # Innerer API-Client
     class HoodAPIClient:
         def __init__(self, account_name: str, account_pass_md5: str, endpoint: str):
             self.account_name = account_name
@@ -37,7 +34,7 @@ def handler(event, context):
                     ET.SubElement(root, tag).text = str(val)
             return ET.tostring(root, encoding='utf-8', xml_declaration=True)
 
-                def _post(self, xml_body: bytes) -> ET.Element:
+        def _post(self, xml_body: bytes) -> ET.Element:
             resp = self.session.post(
                 self.endpoint,
                 data=xml_body,
@@ -49,12 +46,6 @@ def handler(event, context):
             print("Response Status:", resp.status_code)
             print("Response Content:
 ", resp.text)
-            resp.raise_for_status()
-            return ET.fromstring(resp.content)(
-                self.endpoint,
-                data=xml_body,
-                headers={'Content-Type': 'application/xml'}
-            )
             resp.raise_for_status()
             return ET.fromstring(resp.content)
 
@@ -113,7 +104,6 @@ def handler(event, context):
                 else:
                     client.item_insert(xml_str)
 
-    # Sync ausführen
     client = HoodAPIClient(account_name, md5_hash, endpoint)
     client.sync_from_shopware_csv(feed_url)
 
@@ -123,6 +113,21 @@ def handler(event, context):
     }
 
 # Datei: netlify.toml (im Projekt-Root)
+[build]
+  functions = "netlify/functions"
+
+[functions.hood_sync]
+  schedule = "@hourly"
+
+# Git-Workflow: Schritt für Schritt
+# 1. Datei hood_sync.py aktualisieren (wie oben). 
+# 2. In Git Bash:
+#    cd "/c/Users/ao/Downloads/Hood Api/hood-sync"
+#    git add netlify/functions/hood_sync.py netlify.toml
+#    git commit -m "Fix indentation and logging in hood_sync.py"
+#    git push
+# 3. In Netlify Dashboard auf Deploys → Trigger deploy → Deploy site.
+# 4. Unter Logs → Functions → hood_sync Logs prüfen. (im Projekt-Root)
 [build]
   functions = "netlify/functions"
 
