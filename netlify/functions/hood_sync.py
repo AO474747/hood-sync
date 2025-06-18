@@ -37,7 +37,7 @@ def handler(event, context):
                     ET.SubElement(root, tag).text = str(val)
             return ET.tostring(root, encoding='utf-8', xml_declaration=True)
 
-        def _post(self, xml_body: bytes) -> ET.Element:
+                def _post(self, xml_body: bytes) -> ET.Element:
             resp = self.session.post(
                 self.endpoint,
                 data=xml_body,
