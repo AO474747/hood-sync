@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+    <accountName></accountName>				<!-- REQUIRED -->
+    <accountPass></accountPass>				<!-- REQUIRED -->
+    <function>orderList</function>			
+				
+    <!-- OPTIONAL PARAMETERS - leave blank if not needed -->
+    <dateRange>
+    	<type>orderDate</type> 		<!-- orderDate,statusChange,showAll -->
+    	<startDate></startDate>		<!-- DATEFORMAT: MM/DD/YYYY -->
+	    <endDate></endDate>			<!-- DATEFORMAT: MM/DD/YYYY -->
+    </dateRange>
+    <orderID></orderID>				<!-- ORDERID to get one specific order -->
+    
+</api>

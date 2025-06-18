@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+    <accountName></accountName>					<!-- REQUIRED -->
+    <accountPass></accountPass>					<!-- REQUIRED -->
+    <function>itemList</function>			<!-- REQUIRED -->
+    <itemStatus>shopInventory</itemStatus><!-- REQUIRED --><!-- sold,unsuccessful,running,shopInventory -->
+    <listMode>simple</listMode>	<!-- simple,itemNumber,extended,itemData -->
+    <startAt>1</startAt>						<!-- OPTIONAL DEFAULT 1 --> <!-- use for paging --> 
+    <groupSize>100</groupSize>					<!-- OPTIONAL DEFAULT 100 --> <!-- use for paging -->
+    
+    <!-- OPTIONAL PARAMETERS - leave blank if not needed --> 
+    <dateRange>
+    	<startDate></startDate>		<!-- DATEFORMAT: MM/DD/YYYY -->
+	    <endDate></endDate>			<!-- DATEFORMAT: MM/DD/YYYY -->
+    </dateRange>
+    
+    <!-- CHECK IF ONE SPECIFIC PRODUCT EXISTS / USE itemID or itemNumber -->
+    <itemID></itemID>
+    <itemNumber></itemNumber>
+    
+</api>

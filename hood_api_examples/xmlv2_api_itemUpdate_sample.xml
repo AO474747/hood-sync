@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+	<function>itemUpdate</function>						<!-- REQUIRED -->
+    <accountName></accountName>								<!-- REQUIRED -->
+    <accountPass></accountPass>								<!-- REQUIRED -->
+	<items>
+        <item>
+			<!-- basic infos -->
+			<itemID></itemID>									<!-- REQUIRED  itemID to be updated --> 
+			
+			<!-- PLEASE SEE xmlv2_api_itemInsert_sample.xml for details -->
+			
+		</item>
+	</items>
+</api>

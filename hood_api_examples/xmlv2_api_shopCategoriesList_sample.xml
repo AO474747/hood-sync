@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+	<function>shopCategoriesList</function>
+    <accountName></accountName>				<!-- REQUIRED -->
+    <accountPass></accountPass>				<!-- REQUIRED -->
+    <format>xml</format>					<!-- xml,text -->
+</api>

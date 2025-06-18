@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+	<function>shopCategoriesInsert</function>
+    <accountName></accountName>				<!-- REQUIRED -->
+    <accountPass></accountPass>				<!-- REQUIRED -->
+    <parentID>0</parentID>					<!-- prodCatID of parent. 0 = 1 level -->
+    <prodCatName></prodCatName>				<!-- REQUIRED : Name of category -->
+</api>

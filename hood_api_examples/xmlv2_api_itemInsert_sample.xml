@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+	<function>itemInsert</function>                         		<!-- REQUIRED -->
+	<accountName></accountName>										<!-- REQUIRED -->
+	<accountPass></accountPass>										<!-- REQUIRED -->
+	<items>
+		<item>
+        
+			<!-- basic infos -->
+			<itemMode>classic</itemMode>				            <!-- REQUIRED --><!-- classic,buyItNow,shopProduct -->
+			<categoryID></categoryID>								<!-- REQUIRED -->
+			<itemName><![CDATA[]]></itemName>	                    <!-- REQUIRED -->
+			<quantity></quantity>									<!-- REQUIRED -->
+			<condition>new</condition> 								<!-- REQUIRED --><!-- new,likeNew,veryGood,acceptable,refurbished,defect,usedGood -->
+			<description><![CDATA[]]></description>					<!-- REQUIRED -->
+			
+			<!-- Payment Types -->
+			<payOptions>											<!-- REQUIRED for itemMode classic & buyItNow -->
+				<option>wireTransfer</option>						<!-- Bank transfer -->
+				<option>invoice</option>							<!-- Payment on invoice -->
+				<option>cashOnDelivery</option>						<!-- Cash on delivery -->
+				<option>cash</option>								<!-- Cash -->
+				<option>payPal</option>								<!-- PayPal -->
+				<option>sofort</option>								<!-- Sofort. (Klarna) -->
+				<option>amazon</option>							    <!-- Amazon Pay -->
+				<option>klarna</option>							    <!-- Klarna-->
+			</payOptions>
+
+			<!-- Shipping Options -->
+			<shipmethods>											<!-- REQUIRED -->							
+				<shipmethod name="seeDesc_nat">						<!-- Shipping Costs: See description-->
+					<value>5</value>
+				</shipmethod>
+				<shipmethod name="seeDesc_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="seeDesc_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="seeDesc_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="seeDesc_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="postletter_nat">					<!-- Shipping Costs: Post Letter-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="postletter_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="postletter_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="postletter_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="postletter_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLsmallPacket_nat">				<!-- Shipping Costs: DHL SmallPacket-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLsmallPacket_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLsmallPacket_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLsmallPacket_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLsmallPacket_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLPacket_nat">					<!-- Shipping Costs: DHL Packet-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLPacket_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLPacket_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLPacket_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DHLPacket_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="GLS_nat">							<!-- Shipping Costs: GLS-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="GLS_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="GLS_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="GLS_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="GLS_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DPD_nat">							<!-- Shipping Costs: DPD-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DPD_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DPD_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DPD_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="DPD_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="FedEx_nat">						<!-- Shipping Costs: FedEx-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="FedEx_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="FedEx_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="FedEx_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="FedEx_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="UPS_nat">							<!-- Shipping Costs: UPS-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="UPS_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="UPS_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="UPS_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="UPS_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="iloxx_nat">						<!-- Shipping Costs: iloxx-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="iloxx_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="iloxx_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="iloxx_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="iloxx_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="hermes_nat">						<!-- Shipping Costs: Hermes-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="hermes_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="hermes_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="hermes_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="specialShippment_nat">			<!-- Shipping Costs: Special Shippment-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="specialShippment_eu">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="specialShippment_at">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="specialShippment_ch">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="specialShippment_int">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="express_nat">						<!-- Shipping Costs: express shipping-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="express_eu">
+					<value></value>
+				</shipmethod> 
+				<shipmethod name="express_at">
+					<value></value>
+				</shipmethod> 
+				<shipmethod name="express_ch">
+					<value></value>
+				</shipmethod> 
+				<shipmethod name="express_int">
+					<value></value>
+				</shipmethod>                
+				<shipmethod name="cashOnDelivery_nat">				<!-- Shipping Costs: Cash on delivery -->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="cashOnDelivery_eu">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="cashOnDelivery_at">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="cashOnDelivery_ch">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="cashOnDelivery_int">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="certifiedMail_nat">				<!-- Shipping Costs: CertifiedMail -->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="certifiedMail_eu">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="certifiedMail_at">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="certifiedMail_ch">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="certifiedMail_int">				
+					<value></value>
+				</shipmethod>
+				<shipmethod name="consignmentOfGoods_nat">			<!-- Shipping Costs: ConsigmentOfGoods -->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="shipmentAgeValidation_nat">		<!-- Shipping Costs: Special Shippment age 18 verification-->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="shipmentAgeValidation_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="shipmentAgeValidation_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="shipmentAgeValidation_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="shipmentAgeValidation_int">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="commercialDeliveryGoods_nat">		<!-- Shipping Costs: Commercial Delivery Goods -->
+					<value></value>
+				</shipmethod>
+				<shipmethod name="commercialDeliveryGoods_eu">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="commercialDeliveryGoods_at">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="commercialDeliveryGoods_ch">
+					<value></value>
+				</shipmethod>
+				<shipmethod name="commercialDeliveryGoods_int">
+					<value></value>
+				</shipmethod>  
+				<shipmethod name="pickup_nat">						<!-- Pickup -->
+					<value></value>									<!-- VALUE only allows 1 or true -->
+				</shipmethod>
+				<shipmethod name="download_nat">					<!-- DOWNLOAD -->
+					<value></value>									<!-- VALUE only allows 1 or true  -->
+				</shipmethod>
+			</shipmethods>
+			<shippingDiscount></shippingDiscount>					<!-- Shipping Discount for power aucitons (quantity > 1) as percentage e.g. 5% only enter 5. -->
+
+						
+			<startDate></startDate>			 						<!-- REQUIRED --><!-- dd.mm.yyyy -->
+			<startTime></startTime> 								<!-- REQUIRED --><!-- HH:MM (24h) -->
+			<durationInDays></durationInDays> 						<!-- REQUIRED --><!-- 3,5,7,10,14 -->
+			<autoRenew></autoRenew> 								<!--  yes,no,1,0 ... restart auction on unsucessfull run -->
+
+			<priceStart>3,50</priceStart> 							<!-- auction start price 9,99  -->
+			<price>1205,95</price> 								    <!-- Buy now / Shop Price  9,99  -->
+
+			<salesTax></salesTax>									<!-- sales tax for 19% only enter 19 -->
+
+
+													<!-- The base price will be calculated based on packagingSize, price -->
+			<packagingSize></packagingSize>  						<!-- OPTIONAL: Number of items in one package (number with 3 digits e.g. 1,250 kg ) -->           
+			<packagingUnit></packagingUnit>  						<!-- OPTIONAL: Unit of package: g, kg, ml, l, m, qm, cbm und Stk  --> 
+			<unit></unit>									<!-- Optional: Unit of product ( Kg, Meter, Karton, etc .. ) -->
+			<minimumPurchase></minimumPurchase>						<!-- OPTIONAL: Minimum purchase quantity per order e.g: 10 -->
+			
+			<deficiencyDescription></deficiencyDescription>			<!-- Deficiency description e.g. for used items -->										
+	            	<warrantyShortenedFlag></warrantyShortenedFlag>			<!-- yes,no,1,0 - shortens the warranty to 1 year -->
+
+
+			<!-- Optional features that cause fees -->
+			<category2ID></category2ID>
+			<itemNameSubTitle><![CDATA[]]></itemNameSubTitle>
+			<featureBoldTitle></featureBoldTitle>					<!--  yes,no,1,0 -->
+			<featureBackGroundColor></featureBackGroundColor>		<!--  yes,no,1,0 -->
+			<featureGallery></featureGallery>						<!--  yes,no,1,0 -->
+			<featureCategory></featureCategory>						<!--  yes,no,1,0 -->
+			<featureHomePage></featureHomePage>						<!--  yes,no,1,0 -->
+			<featureHomePageImage></featureHomePageImage>			<!--  yes,no,1,0 -->
+			<featureXXLImage></featureXXLImage>						<!--  yes,no,1,0 -->
+
+
+			<!-- shopProduct fields -->
+			<prodCatID></prodCatID>									<!-- shop category -->
+			<prodCatID2></prodCatID2>								<!-- additional shop category -->
+			<prodCatID3></prodCatID3>								<!-- additional shop category -->
+			<shortDesc><![CDATA[]]></shortDesc>
+			<ifIsSoldOut>hide</ifIsSoldOut>							<!-- endLess,hide ... Show product if sold. With Endless ermöglicht weiteren Kauf auch wenn Quantity 0 ist -->
+			<isApproved>1</isApproved>								<!-- yes,no,1,0 ... 1 = product active, 0 = not active / e.g. for edit purpose  -->		
+			<showOnStartPage>1</showOnStartPage>					<!-- 0,1,2 ... Shop Homepage: 0 = not on Shop Homepage, 1 = With image on Shop Homepage, 2 = without image on Shop Homepage -->
+
+			<listPrice></listPrice>									<!-- Optional: Posted Price ( UVP ) 9,99 -->
+
+
+
+			<!-- PRODUKT VARIANTS 1 DIMENSION for Silver / Gold - up to 5 DIMENSIONS for Platin Shops -->
+			<productOptions>								
+				<productOption>	
+					<optionPrice></optionPrice>
+					<optionQuantity></optionQuantity>
+					<optionItemNumber></optionItemNumber>
+					<mpn></mpn>
+					<ean></ean>
+					<PackagingSize></PackagingSize>
+					<optionDetails>
+						<nameValueList>
+							<name><![CDATA[Color]]></name>
+							<value><![CDATA[Blue]]></value>
+						</nameValueList>
+						<nameValueList>
+							<name><![CDATA[Size]]></name>
+							<value><![CDATA[xl]]></value>
+						</nameValueList>
+					</optionDetails>
+				</productOption>
+				
+				<productOption>	
+					<optionPrice></optionPrice>
+					<optionQuantity></optionQuantity>
+					<optionItemNumber></optionItemNumber>
+					<mpn></mpn>
+					<ean></ean>
+					<PackagingSize></PackagingSize>
+					<optionDetails>
+						<nameValueList>
+							<name><![CDATA[Color]]></name>
+							<value><![CDATA[Red]]></value>
+						</nameValueList>
+						<nameValueList>
+							<name><![CDATA[Size]]></name>
+							<value><![CDATA[xl]]></value>
+						</nameValueList>
+					</optionDetails>
+				</productOption>
+			</productOptions>
+
+			<!-- Customised product features -->
+			<productProperties>
+				<nameValueList>
+					<name><![CDATA[Framesize]]></name>
+					<value><![CDATA[48 cm]]></value>
+				</nameValueList>
+				<nameValueList>
+					<name><![CDATA[Wheelsize]]></name>
+					<value><![CDATA[29 zoll]]></value>
+				</nameValueList>
+				<nameValueList>
+					<name><![CDATA[Suspension]]></name>
+					<value><![CDATA[Fully]]></value>
+				</nameValueList>
+			</productProperties> 
+
+
+			<!-- Client Itemnubmers -->
+			<itemNumber></itemNumber>
+			<itemNumberUniqueFlag></itemNumberUniqueFlag>           <!-- Optional: 1 = itemNumber will be checked if it is unique, otherwise the insert will be decliend -->
+
+			<ean></ean>												<!-- Optional / Required: Ean  -->
+			<isbn></isbn>											<!-- Optional: ISBN -->
+			<mpn></mpn>												<!-- Optional / Required -->
+			<manufacturer></manufacturer>							<!-- Optional / Required: -->
+			<noIdentifierFlag></noIdentifierFlag>					<!-- Optional: leave empty if it is not a custom made product -->
+																	<!-- 			1 = No Brand or Manufacturer. Custom Made or No Name Product. -->
+																	<!-- 			0 = Brand or Manufacturer not known. -> Product will not be listed in search engines - Only available for private Accounts -->
+
+
+			<purchasePrice></purchasePrice>							<!-- Optional -->
+			<deliveryDaysOnStockFrom></deliveryDaysOnStockFrom>		<!-- Optional: Ready for delivery if in stock FROM ( if different from shop settings ) -->
+			<deliveryDaysOnStockTo></deliveryDaysOnStockTo>			<!-- Optional: Ready for delivery if in stock TO ( if different from shop settings ) -->
+			<deliveryDaysNotOnStockFrom></deliveryDaysNotOnStockFrom>		<!-- Optional: Ready for delivery if not in stock FROM ( vom hinterlegten Standard abweichende Lieferzeiten ) -->
+			<deliveryDaysNotOnStockTo></deliveryDaysNotOnStockTo>			<!-- Optional: Ready for delivery if not in stock TO ( vom hinterlegten Standard abweichende Lieferzeiten ) -->
+
+			<weight></weight>										<!-- Optional / Required: weight in kg -->
+
+			<!-- Category dependent fields --> 
+			<fsk></fsk>												<!-- Optional: 0,6,12,16,18,unknown -->
+			<usk></usk>												<!-- Optional: 0,6,12,16,18,unknown -->
+			<energyEfficiencyClass></energyEfficiencyClass>			<!-- A+++, A++, A+, A, B, C, D, E, F, G -->
+
+			<energyLabelUrl></energyLabelUrl>		                <!-- Link to Energy lable (PDF or JPG) -->
+			<productInfoUrl></productInfoUrl>		                <!-- Link to Data Sheet (PDF) -->
+
+			<images>
+				<image>
+					<imageURL></imageURL>
+					<optionDetails>
+						<NameValueList>
+							<Name>Color</Name>
+							<Value>Blue</Value>
+						</NameValueList>
+						<NameValueList>
+							<Name>Size</Name>
+							<Value>xl</Value>
+						</NameValueList>
+					</optionDetails>
+				</image>
+				<imageBase64></imageBase64>
+				<imageURL></imageURL>
+			</images>
+
+			<referenceID></referenceID>								<!-- OPTIONAL only for Response api response -->
+		</item>
+	</items>
+</api>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+    <accountName></accountName>				<!-- REQUIRED -->
+    <accountPass></accountPass>				<!-- REQUIRED -->
+    <function>updateOrderStatus</function>	<!-- REQUIRED -->
+	
+    <orders>
+    	<order>								
+    		<orderID></orderID>				<!-- REQUIRED -->
+    		<statusAction></statusAction>	<!-- REQUIRED (completed,pending,payed,cancelationPending,cancelationDenied) -->
+    		<messageText></messageText>		<!-- REQUIRED (can be blank) -->
+    		<trackingCode></trackingCode>	<!-- OPTIONAL -->
+    		<carrier></carrier>				<!-- OPTIONAL - (UPS,FedEx,Hermes,iloxx,Deutsche Post,TNT,DHL,DPD,GLS) -->
+    		<!-- if cancelationPending -->
+    		<cancelationReason></cancelationReason> <!-- (noStock,revoked,noPayment,defect) -->
+    	</order>
+    </orders>
+	
+</api>

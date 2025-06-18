@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+    <accountName></accountName>				<!-- REQUIRED -->
+    <accountPass></accountPass>				<!-- REQUIRED -->
+    <function>rateBuyer</function>
+    
+     <orders>
+    	<order>								
+    		<orderID></orderID>				<!-- REQUIRED -->
+    		<rating></rating>				<!--- REQUIRED positiv,neutral,negativ --->
+    		<ratingText></ratingText>		<!-- REQUIRED -->
+    	</order>
+    </orders>
+    
+    		
+</api>

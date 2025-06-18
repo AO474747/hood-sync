@@ -63,3 +63,5 @@ out/
 # Temporäre Dateien
 tmp/
 temp/ 
+# Local Netlify folder
+.netlify

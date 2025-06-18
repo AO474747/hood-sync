@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+	<function>shopCategoriesUpdate</function>
+    <accountName></accountName>				<!-- REQUIRED -->
+    <accountPass></accountPass>				<!-- REQUIRED -->
+    <prodCatID>0</prodCatID>				<!-- prodCatID of cateogroy to be updated  -->
+    <prodCatName></prodCatName>				<!-- REQUIRED : Name of catgegory -->
+</api>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+	<function>itemDelete</function>			<!-- REQUIRED -->
+	<accountName></accountName>			<!-- REQUIRED -->
+	<accountPass></accountPass>					<!-- REQUIRED -->
+	<items>
+    		<item>
+    			<itemID></itemID>			<!--- REQUIRED OR itemNumber--->
+				<!-- <itemNumber></itemNumber> -->	<!--- REQUIRED OR itemID --->
+	    	</item>
+	</items>
+</api>

@@ -1,0 +1,30 @@
+{
+  "name": "hood-sync",
+  "version": "1.0.0",
+  "description": "Hood.de Produktsynchronisation",
+  "main": "netlify/functions/hood_sync.js",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "netlify build",
+    "deploy": "netlify deploy --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AO474747/hood-sync.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AO474747/hood-sync/issues"
+  },
+  "homepage": "https://github.com/AO474747/hood-sync#readme",
+  "devDependencies": {
+    "netlify-cli": "^17.17.1"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.0.0",
+    "axios": "^1.6.7",
+    "csv-parse": "^5.5.3"
+  }
+}

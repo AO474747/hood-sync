@@ -5,9 +5,19 @@
   functions  = "netlify/functions"         # hier liegen deine hood_sync.py
 
 [functions]
-directory = "netlify/functions"
-node_bundler = "esbuild"
-external_node_modules = ["python-shell"]
+  node_bundler = "esbuild"
+  external_node_modules = ["axios", "csv-parse"]
 
 [[plugins]]
 package = "@netlify/plugin-functions-install-core"
+
+[dev]
+  command = "npm run dev"
+  port = 8888
+
+[dev.environment]
+  FEED_URL = "https://example.com/feed.csv"
+  HOOD_PASSWORD = "test_password"
+  ACCOUNT_NAME = "test_account"
+  HOOD_ENDPOINT = "https://www.hood.de/api.htm"
+  TEST_CSV = "mpnr,name,price,stock,description,image1\n12345,Test Produkt,19.99,10,Testbeschreibung,https://example.com/image.jpg"

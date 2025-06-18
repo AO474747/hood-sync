@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0" user="" password="">
+	<function>itemStatus</function>				<!-- REQUIRED -->
+    <accountName></accountName>						<!-- REQUIRED -->
+    <accountPass></accountPass>						<!-- REQUIRED -->
+    <detailLevel>image,description,orders</detailLevel>
+    <items>
+    	<itemID></itemID>						<!--- REQUIRED -->
+    </items>
+</api>
