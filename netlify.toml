@@ -9,9 +9,5 @@ directory = "netlify/functions"
 node_bundler = "esbuild"
 external_node_modules = ["python-shell"]
 
-[functions.hood_sync]
-  # Cron-Schedule, wenn du willst – optional; entfernt den Plugin-Block komplett
-  schedule = "@hourly"
-
 [[plugins]]
 package = "@netlify/plugin-functions-install-core"
