@@ -6,3 +6,8 @@
 
 [functions."*.py"]
   runtime = "python3.13"
+
+# Dieser Block bewirkt, dass netlify dev deine Functions richtig lädt:
+[dev]
+  functions = "netlify/functions"
+  port = 8888
