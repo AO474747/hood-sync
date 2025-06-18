@@ -1,9 +1,9 @@
 [build]
-  functions = "netlify/functions"
+  # Alle Befehle aus dem Projekt-Root laufen standardmäßig – wir brauchen hier keine
+  # Build-Command für reines Function-Deploy
+  publish    = "/"                         # oder "."; wir haben kein Frontend
+  functions  = "netlify/functions"         # hier liegen deine hood_sync.py
 
 [functions.hood_sync]
+  # Cron-Schedule, wenn du willst – optional; entfernt den Plugin-Block komplett
   schedule = "@hourly"
-
-[dev]
-  port      = 8888
-  functions = "netlify/functions" 
