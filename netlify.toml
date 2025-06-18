@@ -3,7 +3,16 @@
   # Build-Command für reines Function-Deploy
   publish    = "/"                         # oder "."; wir haben kein Frontend
   functions  = "netlify/functions"         # hier liegen deine hood_sync.py
+  command    = "pip install -r requirements.txt"
+
+[functions]
+directory = "netlify/functions"
+node_bundler = "esbuild"
+external_node_modules = ["python-shell"]
 
 [functions.hood_sync]
   # Cron-Schedule, wenn du willst – optional; entfernt den Plugin-Block komplett
   schedule = "@hourly"
+
+[[plugins]]
+package = "@netlify/plugin-functions-install-core"
