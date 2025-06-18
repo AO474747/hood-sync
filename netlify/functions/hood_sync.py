@@ -14,6 +14,7 @@ def handler(event, context):
     feed_url = os.getenv('FEED_URL')
     raw_pass = os.getenv('HOOD_PASSWORD')
     account_name = os.getenv('ACCOUNT_NAME')
+    # MD5-Hash nutzen oder aus Klartext generieren
     md5_hash = os.getenv('MD5_HASH') or hashlib.md5(raw_pass.encode('utf-8')).hexdigest()
     endpoint = os.getenv('HOOD_ENDPOINT', 'https://www.hood.de/api.htm')
 
@@ -35,28 +36,29 @@ def handler(event, context):
             return ET.tostring(root, encoding='utf-8', xml_declaration=True)
 
         def _post(self, xml_body: bytes) -> ET.Element:
+            # Send request
             resp = self.session.post(
                 self.endpoint,
                 data=xml_body,
                 headers={'Content-Type': 'application/xml'}
             )
-            # Logging: Anfrage und Antwort ausgeben
-            print("Request XML:
-", xml_body.decode('utf-8'))
-            print("Response Status:", resp.status_code)
-            print("Response Content:
-", resp.text)
+            # Debug-Logging
+            decoded_xml = xml_body.decode('utf-8')
+            print(f"Request XML:\n{decoded_xml}")
+            print(f"Response Status: {resp.status_code}")
+            print(f"Response Content:\n{resp.text}")
             resp.raise_for_status()
             return ET.fromstring(resp.content)
 
         def call(self, method: str, payload: dict = None) -> ET.Element:
-            return self._post(self._build_request(method, payload))
+            xml = self._build_request(method, payload)
+            return self._post(xml)
 
         def item_exists(self, article_id: str) -> bool:
             try:
                 resp = self.call('itemDetail', {'articleID': article_id})
                 return resp.find('error') is None
-            except:
+            except Exception:
                 return False
 
         def item_insert(self, xml_data: str) -> ET.Element:
@@ -72,6 +74,7 @@ def handler(event, context):
             for row in reader:
                 article_id = row.get('mpnr') or row.get('aid')
                 hood_item = ET.Element('item')
+                # Feldzuordnung
                 mapping = {
                     'name': row.get('name','').strip(),
                     'description': row.get('desc','').strip(),
@@ -88,6 +91,7 @@ def handler(event, context):
                     images.append(row['image'].strip())
                 if row.get('images'):
                     images.extend([u.strip() for u in row['images'].split(',') if u.strip()])
+
                 ET.SubElement(hood_item, 'articleID').text = article_id
                 for tag, val in mapping.items():
                     if val:
@@ -98,12 +102,14 @@ def handler(event, context):
                         ET.SubElement(hood_item, prop).text = val
                 for img_url in images:
                     ET.SubElement(hood_item, 'images').text = img_url
+
                 xml_str = ET.tostring(hood_item, encoding='utf-8').decode('utf-8')
                 if client.item_exists(article_id):
                     client.item_update(xml_str)
                 else:
                     client.item_insert(xml_str)
 
+    # Client initialisieren und Sync ausführen
     client = HoodAPIClient(account_name, md5_hash, endpoint)
     client.sync_from_shopware_csv(feed_url)
 
@@ -118,28 +124,3 @@ def handler(event, context):
 
 [functions.hood_sync]
   schedule = "@hourly"
-
-# Git-Workflow: Schritt für Schritt
-# 1. Datei hood_sync.py aktualisieren (wie oben). 
-# 2. In Git Bash:
-#    cd "/c/Users/ao/Downloads/Hood Api/hood-sync"
-#    git add netlify/functions/hood_sync.py netlify.toml
-#    git commit -m "Fix indentation and logging in hood_sync.py"
-#    git push
-# 3. In Netlify Dashboard auf Deploys → Trigger deploy → Deploy site.
-# 4. Unter Logs → Functions → hood_sync Logs prüfen. (im Projekt-Root)
-[build]
-  functions = "netlify/functions"
-
-[functions.hood_sync]
-  schedule = "@hourly"
-
-# Git-Workflow: Schritt für Schritt
-# 1. Datei hood_sync.py aktualisieren (wie oben). 
-# 2. In Git Bash:
-#    cd "/c/Users/ao/Downloads/Hood Api/hood-sync"
-#    git add netlify/functions/hood_sync.py netlify.toml
-#    git commit -m "Update hood_sync.py to auto-hash password"
-#    git push
-# 3. In Netlify Dashboard auf Deploys → Trigger deploy → Deploy site.
-# 4. Unter Logs → Functions → hood_sync Logs prüfen.
