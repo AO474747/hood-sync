@@ -11,6 +11,10 @@ def handler(event, context):
     """
     # Umgebungsvariablen
     feed_url = os.getenv('FEED_URL')
+    # Falls ein Klartext-Passwort übergeben wird, MD5-Hash erzeugen
+    raw_pass = os.getenv('HOOD_PASSWORD')
+    md5_hash = os.getenv('MD5_HASH') or hashlib.md5(raw_pass.encode('utf-8')).hexdigest()
+    account_name = os.getenv('ACCOUNT_NAME')
     md5_hash = os.getenv('MD5_HASH')
     account_name = os.getenv('ACCOUNT_NAME')
     endpoint = os.getenv('HOOD_ENDPOINT', 'https://www.hood.de/api.htm')
@@ -106,6 +110,7 @@ def handler(event, context):
         'body': 'Hood-Sync erfolgreich ausgeführt.'
     }
 
+
 # Datei: netlify.toml (im Projekt-Root)
 [build]
   functions = "netlify/functions"
@@ -117,9 +122,8 @@ def handler(event, context):
 # 1. Datei hood_sync.py aktualisieren (wie oben). 
 # 2. In Git Bash:
 #    cd "/c/Users/ao/Downloads/Hood Api/hood-sync"
-#    git status
-#    git add netlify/functions/hood_sync.py
-#    git commit -m "Update hood_sync.py from latest Canvas version"
+#    git add netlify/functions/hood_sync.py netlify.toml
+#    git commit -m "Update hood_sync.py & netlify.toml to latest scheduled-function version"
 #    git push
 # 3. In Netlify Dashboard auf Deploys → Trigger deploy → Deploy site.
 # 4. Unter Functions → hood_sync Logs prüfen.
