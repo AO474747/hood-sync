@@ -3,3 +3,6 @@
 
 [functions.hood_sync]
   schedule = "@hourly"
+
+[functions."*.py"]
+  runtime = "python3.13"
