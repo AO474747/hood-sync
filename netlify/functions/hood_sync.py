@@ -1,9 +1,11 @@
 # Datei: netlify/functions/hood_sync.py
 import os
+import hashlib
 import requests
 import xml.etree.ElementTree as ET
 import csv
 import io
+
 
 def handler(event, context):
     """
@@ -11,12 +13,10 @@ def handler(event, context):
     """
     # Umgebungsvariablen
     feed_url = os.getenv('FEED_URL')
-    # Falls ein Klartext-Passwort übergeben wird, MD5-Hash erzeugen
     raw_pass = os.getenv('HOOD_PASSWORD')
+    # Falls ein Klartext-Passwort übergeben wird, MD5-Hash erzeugen
+    account_name = os.getenv('ACCOUNT_NAME')
     md5_hash = os.getenv('MD5_HASH') or hashlib.md5(raw_pass.encode('utf-8')).hexdigest()
-    account_name = os.getenv('ACCOUNT_NAME')
-    md5_hash = os.getenv('MD5_HASH')
-    account_name = os.getenv('ACCOUNT_NAME')
     endpoint = os.getenv('HOOD_ENDPOINT', 'https://www.hood.de/api.htm')
 
     # Innerer API-Client
@@ -39,6 +39,18 @@ def handler(event, context):
 
         def _post(self, xml_body: bytes) -> ET.Element:
             resp = self.session.post(
+                self.endpoint,
+                data=xml_body,
+                headers={'Content-Type': 'application/xml'}
+            )
+            # Logging: Anfrage und Antwort ausgeben
+            print("Request XML:
+", xml_body.decode('utf-8'))
+            print("Response Status:", resp.status_code)
+            print("Response Content:
+", resp.text)
+            resp.raise_for_status()
+            return ET.fromstring(resp.content)(
                 self.endpoint,
                 data=xml_body,
                 headers={'Content-Type': 'application/xml'}
@@ -110,7 +122,6 @@ def handler(event, context):
         'body': 'Hood-Sync erfolgreich ausgeführt.'
     }
 
-
 # Datei: netlify.toml (im Projekt-Root)
 [build]
   functions = "netlify/functions"
@@ -123,7 +134,7 @@ def handler(event, context):
 # 2. In Git Bash:
 #    cd "/c/Users/ao/Downloads/Hood Api/hood-sync"
 #    git add netlify/functions/hood_sync.py netlify.toml
-#    git commit -m "Update hood_sync.py & netlify.toml to latest scheduled-function version"
+#    git commit -m "Update hood_sync.py to auto-hash password"
 #    git push
 # 3. In Netlify Dashboard auf Deploys → Trigger deploy → Deploy site.
-# 4. Unter Functions → hood_sync Logs prüfen.
+# 4. Unter Logs → Functions → hood_sync Logs prüfen.
