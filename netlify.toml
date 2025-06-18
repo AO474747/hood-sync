@@ -3,7 +3,6 @@
   # Build-Command für reines Function-Deploy
   publish    = "/"                         # oder "."; wir haben kein Frontend
   functions  = "netlify/functions"         # hier liegen deine hood_sync.py
-  command    = "pip install -r requirements.txt"
 
 [functions]
 directory = "netlify/functions"
