@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0.1" user="TaschenParadies" password="56de5a0f3beed6120e5db5d1323cc922">
+  <function>categoriesBrowse</function>
+  <accountName>TaschenParadies</accountName>
+  <accountPass>56de5a0f3beed6120e5db5d1323cc922</accountPass>
+  <categoryID>23016</categoryID>
+</api> 

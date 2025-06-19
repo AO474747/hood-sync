@@ -1,23 +1,41 @@
 [build]
   # Alle Befehle aus dem Projekt-Root laufen standardmäßig – wir brauchen hier keine
   # Build-Command für reines Function-Deploy
-  publish    = "/"                         # oder "."; wir haben kein Frontend
-  functions  = "netlify/functions"         # hier liegen deine hood_sync.py
+  publish = "."
+  functions = "netlify/functions"
 
-[functions]
-  node_bundler = "esbuild"
+[functions."*"]
   external_node_modules = ["axios", "csv-parse"]
+  included_files = ["netlify/functions/hood_sync.js"]
+  node_bundler = "esbuild"
 
 [[plugins]]
 package = "@netlify/plugin-functions-install-core"
 
 [dev]
-  command = "npm run dev"
+  framework = "#static"
   port = 8888
+  targetPort = 3000
 
-[dev.environment]
-  FEED_URL = "https://example.com/feed.csv"
-  HOOD_PASSWORD = "test_password"
-  ACCOUNT_NAME = "test_account"
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/hood_sync"
+  status = 200
+
+[context.production.environment]
+  FEED_URL = "https://taschenparadies.de/store-api/product-export/SWPEDTVIYVJKCZK2WFO4YJZKOQ/hood"
+  HOOD_PASSWORD = "Berlin47,."
+  ACCOUNT_NAME = "TaschenParadies"
   HOOD_ENDPOINT = "https://www.hood.de/api.htm"
-  TEST_CSV = "mpnr,name,price,stock,description,image1\n12345,Test Produkt,19.99,10,Testbeschreibung,https://example.com/image.jpg"
+
+[context.deploy-preview.environment]
+  FEED_URL = "https://taschenparadies.de/store-api/product-export/SWPEDTVIYVJKCZK2WFO4YJZKOQ/hood"
+  HOOD_PASSWORD = "Berlin47,."
+  ACCOUNT_NAME = "TaschenParadies"
+  HOOD_ENDPOINT = "https://www.hood.de/api.htm"
+
+[context.branch-deploy.environment]
+  FEED_URL = "https://taschenparadies.de/store-api/product-export/SWPEDTVIYVJKCZK2WFO4YJZKOQ/hood"
+  HOOD_PASSWORD = "Berlin47,."
+  ACCOUNT_NAME = "TaschenParadies"
+  HOOD_ENDPOINT = "https://www.hood.de/api.htm"

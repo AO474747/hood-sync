@@ -4,8 +4,9 @@
   "description": "Hood.de Produktsynchronisation",
   "main": "netlify/functions/hood_sync.js",
   "scripts": {
+    "start": "netlify functions:serve",
+    "build": "netlify functions:build",
     "dev": "netlify dev",
-    "build": "netlify build",
     "deploy": "netlify deploy --prod"
   },
   "repository": {
@@ -20,11 +21,11 @@
   },
   "homepage": "https://github.com/AO474747/hood-sync#readme",
   "devDependencies": {
-    "netlify-cli": "^17.17.1"
+    "netlify-cli": "^17.38.1"
   },
   "dependencies": {
-    "@netlify/functions": "^2.0.0",
-    "axios": "^1.6.7",
-    "csv-parse": "^5.5.3"
+    "@netlify/functions": "^2.8.2",
+    "axios": "^1.10.0",
+    "csv-parse": "^5.6.0"
   }
 }

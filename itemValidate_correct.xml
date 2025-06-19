@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api type="public" version="2.0.1" user="TaschenParadies" password="56de5a0f3beed6120e5db5d1323cc922">
+  <function>itemValidate</function>
+  <accountName>TaschenParadies</accountName>
+  <accountPass>56de5a0f3beed6120e5db5d1323cc922</accountPass>
+  <items>
+    <item>
+      <itemNumber>TEST-001</itemNumber>
+      <title>Puma Sporttasche M Fundamentals Sports Bag Black - Hochwertige Sporttasche für Fitness und Reisen</title>
+      <description>Praktische Puma Sporttasche in Schwarz, ideal für Fitness, Reisen und Alltag. Diese hochwertige Sporttasche bietet viel Stauraum und ist aus robustem Material gefertigt. Perfekt für Sportler und aktive Menschen, die eine zuverlässige und stilvolle Tasche suchen. Die Tasche verfügt über mehrere Fächer für optimale Organisation und ist mit verstellbaren Trägern ausgestattet.</description>
+      <categoryID>23030</categoryID>
+      <price>29.99</price>
+      <quantity>5</quantity>
+      <condition>1</condition>
+      <images>
+        <image>https://example.com/image1.jpg</image>
+        <image>https://example.com/image2.jpg</image>
+      </images>
+      <shipping>
+        <shippingType>1</shippingType>
+        <shippingCost>4.99</shippingCost>
+      </shipping>
+    </item>
+  </items>
+</api> 
